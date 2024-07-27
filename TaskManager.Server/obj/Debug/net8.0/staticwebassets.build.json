@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "By8t/Ibv0XbRjD0Uayb5F+dz96QR574Q2J3RexhoL/4=",
+  "Source": "TaskManager.Server",
+  "BasePath": "_content/TaskManager.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\taskmanager.client\\taskmanager.client.esproj",
+      "Version": 2,
+      "Source": "taskmanager.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

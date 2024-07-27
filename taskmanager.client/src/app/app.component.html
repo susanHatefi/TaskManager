@@ -1,0 +1,22 @@
+﻿<main class="mainContainer">
+    <aside class="aside">
+        <header class="menu-header">
+            <div class="flex-row">
+                <span class="material-icons"></span>  
+                <h3 class="title">Task Manager Demo</h3>
+            </div>
+            <div class="flex-row subTitle">
+                <span>Software Project</span>
+            </div>
+        </header>
+        <nav class="nav flex-col">
+            @for(item of menuItems;track item.lable){
+                  <a class="nav-item flex-row"  [routerLink]="item.path" > 
+                    <span class="material-icons" [title]="item.lable">
+                    {{item.icon}}
+                      </span> <span class="link-title col-m-12 col-s-0">{{item.lable}}</span></a>
+            }
+        </nav>        
+    </aside>
+    <section class="content"></section>
+</main>

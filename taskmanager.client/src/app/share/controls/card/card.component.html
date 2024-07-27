@@ -1,0 +1,27 @@
+<div class="card">
+ @if(showHeader){
+     <div class="card-header">
+         <ng-container *ngTemplateOutlet="cardHeaderTemp ? cardHeaderTemp : defaultCardHeaderTemp; contex:{title:title}" ></ng-container>
+     </div>
+
+ }
+    <div class="card-content">
+        <ng-container *ngTemplateOutlet="cardContentTemp ? cardContentTemp : defaultCardContentTemp; contex:{data:cardData}" ></ng-container>
+    </div>
+    @if(showFooter){
+        <div class="card-footer">
+            <ng-container *ngTemplateOutlet="cardFooterTemp ? cardFooterTemp : defaultCardFooterTemp; contex:{data:cardData}" ></ng-container>
+        </div>
+
+    }
+</div>
+<ng-template #defaultCardHeaderTemp let-data="title">
+{{data}}
+</ng-template>
+<ng-template #defaultCardContentTemp let-data="cardData">
+
+</ng-template>
+<ng-template #defaultCardFooterTemp let-data="cardData">
+
+</ng-template>
+

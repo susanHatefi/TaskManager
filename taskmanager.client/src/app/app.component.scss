@@ -1,0 +1,94 @@
+﻿@import '../assets/variables';
+@import '../assets/mixins';
+
+.mainContainer{
+    // @include flex(column,noWrap,start);
+    @include flex(row,noWrap,start,start);
+
+    height: 100vh;
+    .aside{
+        background-color: $lightGray;
+        // @include flex(row);
+        // justify-content: flex-start;
+        // height: 2.5em;
+        @include flex(column,noWrap);
+        justify-content: flex-start;
+        flex: 1 1 20%;
+        height: 100%;
+        width: 20%;
+        .menu-header{
+            width: 100%;
+            border-bottom: 2px solid #fff;
+            .title{
+                text-align: center;
+            }
+            .subTitle{
+                color: $darkGray;
+                font-size: .95em;
+                margin-bottom: .5em;
+            }
+        }
+        .nav{
+            padding: 1em;
+            width: 100%;
+            align-items: flex-start;
+            .nav-item{
+                padding: .5em;
+                height: auto;
+                text-decoration: none;
+                color: inherit;
+                width: 100%;
+                border-radius: 5px;
+                &:hover{
+                    background-color: $activeGray;
+                    
+                }
+                &.active{
+                    background-color: $activeGray;
+                    font-weight: 700
+                }
+            }
+        }
+    }
+    .content{
+        @extend .aside;
+        background-color: #fff;
+        overflow-y: auto;
+        flex: 1 1 80%;
+        overflow-y: auto;
+        height: calc(100%);
+        width: 100%;
+    }
+}
+@media screen and (min-width:48em) {
+    .mainContainer{
+        .aside{
+            .nav{
+                .nav-item{
+                justify-content: flex-start;
+
+            }
+        }
+    }
+}
+}
+
+// @media screen and (min-width : 560px) {
+//     .mainContainer{
+//         @include flex(row,noWrap,start,start);
+    
+//     .aside{
+//         @include flex(column,noWrap);
+//         justify-content: flex-start;
+//         flex: 1 1 20%;
+//         height: 100%
+//     }
+//     .content{
+//         @extend .aside;
+//         flex: 1 1 80%;
+//         overflow-y: auto;
+//         height: calc(100%);
+
+//     }
+//     }
+// }

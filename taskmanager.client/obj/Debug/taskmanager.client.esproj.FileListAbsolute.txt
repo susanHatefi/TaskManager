@@ -1,0 +1,2 @@
+D:\Projects\Job\sample\TaskManager\taskmanager.client\obj\Debug\taskmanager.client.esproj.CoreCompileInputs.cache
+D:\Projects\Job\sample\TaskManager\TaskManager\taskmanager.client\obj\Debug\taskmanager.client.esproj.CoreCompileInputs.cache

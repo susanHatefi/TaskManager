@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Roboto sans-serif";
+  src: url('./assets/fonts/Roboto-Regular.ttf') format("ttf"),
+  url('./assets/fonts/OpenSans-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src:url('./assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format(woff2),
+   url('./assets/fonts/MaterialIcons-Regular.ttf') format('ttf'),
+  url('./assets/fonts/MaterialIconsRound-Regular.otf') format('otf'),
+  url('./assets/fonts/MaterialIconsOutlined-Regular.otf') format('otf'),
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.3em;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  padding: 0 .2em;
+}
+
+
+html,
+body {
+  height: auto;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #000;
+}
+
+
+
+//769-1024
+
+@media screen and (max-width:64em) {
+  body {font-size: 0.875em;}
+  
+}
+// 481-768
+@media screen and (max-width:48em) {
+  body {font-size: 0.75em;}
+  .col-m-12{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+//320-480
+@media screen and (max-width:30em) {
+  body {font-size: 0.625em;}
+  .col-s-0{
+    display: none;
+  }
+  
+}

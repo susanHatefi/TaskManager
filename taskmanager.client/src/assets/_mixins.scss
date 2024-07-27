@@ -1,0 +1,26 @@
+@mixin flex($dir: row, $wrap: wrap,$justify:center,$align:center) {
+    display: flex;
+    flex-flow: $dir $wrap;
+    justify-content: $justify;
+    align-items: $align;
+    box-sizing: border-box;
+  }
+  
+  .flex-row {
+    @include flex();
+  }
+  
+  .flex-row-noWrap {
+    @include flex(row, noWrap);
+  }
+  
+  .flex-col {
+    @include flex(column);
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .flex-col-noWrap {
+    @include flex(column, noWrap);
+    justify-content: flex-start;
+    height: 100%;
+  }

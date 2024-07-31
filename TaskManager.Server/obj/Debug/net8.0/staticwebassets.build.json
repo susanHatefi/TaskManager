@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "By8t/Ibv0XbRjD0Uayb5F+dz96QR574Q2J3RexhoL/4=",
+  "Hash": "nTA8Geu63vTIBVyspjP2XQJPMDGkj1YfqmIhfQBvp0w=",
   "Source": "TaskManager.Server",
   "BasePath": "_content/TaskManager.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\taskmanager.client\\taskmanager.client.esproj",
+      "Identity": "D:\\Projects\\Job\\Sample-work\\TaskManager\\taskmanager.client\\taskmanager.client.esproj",
       "Version": 2,
       "Source": "taskmanager.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

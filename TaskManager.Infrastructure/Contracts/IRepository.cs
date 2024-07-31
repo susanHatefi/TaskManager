@@ -3,9 +3,9 @@ using TaskManager.Infrastructure.Entities;
 
 namespace TaskManager.Infrastructure.Contracts;
 
-public interface IRepository<T> where T :ToDo
+public interface IRepository<T> where T :ToDo, new()
 {
-    public Task AddAsync(T entity);
+    public Task<T> AddAsync(T entity);
     public Task UpdateAsync(T entity);
     public Task DeleteAsync(T entity);
     public Task<IEnumerable<T>> FindAsync(Expression<Func<T,bool>> expression);

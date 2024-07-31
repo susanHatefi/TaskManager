@@ -3,15 +3,16 @@ using System.Linq.Expressions;
 using TaskManager.Infrastructure.Contracts;
 using TaskManager.Infrastructure.Entities;
 
+
 namespace TaskManager.Infrastructure.Repositories;
 
-public class InnerMemoryRepository<T> : IRepository<T> where T : ToDo
+public class InnerMemoryRepository<T> : IRepository<T> where T : ToDo, new()
 {
     public ConcurrentDictionary<Guid, T> CollectionOfData { get; } = new();
-    public Task AddAsync(T entity)
+    public Task<T> AddAsync(T entity)
     {
         CollectionOfData.TryAdd(entity.Id, entity);
-        return Task.CompletedTask;
+        return Task.FromResult(entity);
     }
 
     public Task DeleteAsync(T entity)
@@ -23,13 +24,13 @@ public class InnerMemoryRepository<T> : IRepository<T> where T : ToDo
 
     public Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression)
     {
-        var items = CollectionOfData.Values.AsQueryable().Where(expression).Select(item => item).AsEnumerable();
+        var items = CollectionOfData.Values.AsQueryable().Select(item => item).AsEnumerable();
         return Task.FromResult(items);
     }
 
     public Task<IEnumerable<T>> GetAllAsync()
     {
-        var items = CollectionOfData.Values.ToArray();
+        var items = CollectionOfData.Values.Where(item=>!item.IsDeleted).Select(item=>item).ToArray();
         return Task.FromResult<IEnumerable<T>>(items);
     }
 

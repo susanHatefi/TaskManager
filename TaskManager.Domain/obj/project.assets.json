@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
+      "projectUniqueName": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
       "projectName": "TaskManager.Domain",
-      "projectPath": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
+      "projectPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
       "packagesPath": "C:\\Users\\susan\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Domain\\obj\\",
+      "outputPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

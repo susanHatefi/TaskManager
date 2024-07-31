@@ -38,7 +38,7 @@ public static class DataAccess
             var sqlConfig=provider.GetService<IOptions<SQLConnectionSetting>>().Value;
             if (sqlConfig.IsEnable)
             {
-                var dbContext=provider.GetRequiredService<DbContext>();
+                var dbContext=provider.GetRequiredService<DBContext>();
                 return new SqlRepository<T>(dbContext);
             }
             else

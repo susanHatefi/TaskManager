@@ -4241,11 +4241,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
       "projectName": "TaskManager.Infrastructure",
-      "projectPath": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+      "projectPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\susan\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Infrastructure\\obj\\",
+      "outputPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4265,8 +4265,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj": {
-              "projectPath": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj"
+            "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj": {
+              "projectPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj"
             }
           }
         }

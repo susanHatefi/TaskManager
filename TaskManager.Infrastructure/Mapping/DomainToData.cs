@@ -4,7 +4,7 @@ namespace TaskManager.Infrastructure.Mapping;
 
 public static class DomainToData
 {
-    public static D AsData<T, D>(this T entity) where T : Domain.ToDo, new() where D : ToDo, new()
+    public static D AsData<T, D>(this T entity) where T : Domain.IToDo where D : ToDo, new()
     {
         if (entity == null) return null!;
         var data = entity switch
@@ -27,7 +27,7 @@ public static class DomainToData
             Severity=bug.Severity,
             AffectedVersion=bug.AffectedVersion,
             Images=bug?.Images?.Select(img=>new Image { ImageData=Convert.ToBase64String(img)}).ToArray(),
-            Id=bug.Id,
+            Id=bug.Id??Guid.NewGuid(),
             DueDate=bug.DueDate
         };
     }
@@ -36,7 +36,7 @@ public static class DomainToData
     {
         return new(){
             
-            Id=feature.Id,
+            Id=feature.Id ?? Guid.NewGuid(),
             Title=feature.Title,
             Description=feature.Description, 
             Component=feature.Component,
@@ -45,17 +45,17 @@ public static class DomainToData
             DueDate=feature.DueDate,
             CreatedDate=feature.CreatedDate,
             IsDeleted=feature.IsDeleted,
+            AssignedTo=ToDataUser(feature.AssignedTo),
+            CreatedBy=ToDataUser(feature.CreatedBy)
         };
     }
 
     private static User ToDataUser(Domain.User user)
     {
         if (user == null) return null!;
-        var splitedFullName = user.FullName.Split(" ");
         return new(){
             Id = user.Id,
-            Name= splitedFullName[0],
-            Family = user.FullName.Replace(splitedFullName[0],string.Empty).Trim(),
+            FullName = user.FullName
 
         };
     }
@@ -67,7 +67,7 @@ public static class DomainToData
            Title= task.Title,
            DueDate= task.DueDate,
            CreatedDate=task.CreatedDate,
-           Id= task.Id,
+           Id= task.Id ?? Guid.NewGuid(),
            IsCompeted=  task.IsCompeted,
            IsDeleted= task.IsDeleted,
 

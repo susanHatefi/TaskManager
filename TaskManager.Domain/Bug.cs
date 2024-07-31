@@ -2,4 +2,4 @@
 
 namespace TaskManager.Domain;
 
-public record Bug(string Title, string Description, Severity Severity, string AffectedVersion,User CreatedBy, User? AssignedTo, IEnumerable<byte[]> Images ):ToDoTask(Title,DateTimeOffset.MinValue,CreatedBy );
+public record Bug(Severity Severity, string AffectedVersion,  IEnumerable<byte[]>? Images):ToDoTask( );

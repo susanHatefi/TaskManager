@@ -7,15 +7,16 @@ namespace TaskManager.Infrastructure.Repositories;
 
 public class SqlRepository<T> : IRepository<T> where T : ToDo, new()
 {
-    public DbContext _dbContext { get; set; }
-    public SqlRepository(DbContext dbContext)
+    public DBContext _dbContext { get; set; }
+    public SqlRepository(DBContext dbContext)
     {
         _dbContext = dbContext;
     }
-    public async Task AddAsync(T entity)
+    public async Task<T> AddAsync(T entity)
     {
         await _dbContext.AddAsync(entity);
         await SaveChangesAsync();
+        return entity;
     }
 
     public async Task DeleteAsync(T entity)

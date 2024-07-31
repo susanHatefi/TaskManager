@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "D:\\Projects\\Job\\sample\\TaskManager\\TaskManager\\TaskManager.Server\\..\\taskmanager.client",
+"WorkingDirectory": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\..\\taskmanager.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

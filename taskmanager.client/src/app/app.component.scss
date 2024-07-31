@@ -58,6 +58,7 @@
         overflow-y: auto;
         height: calc(100%);
         width: 100%;
+        padding: .5em 1em;
     }
 }
 @media screen and (min-width:48em) {
@@ -72,23 +73,3 @@
     }
 }
 }
-
-// @media screen and (min-width : 560px) {
-//     .mainContainer{
-//         @include flex(row,noWrap,start,start);
-    
-//     .aside{
-//         @include flex(column,noWrap);
-//         justify-content: flex-start;
-//         flex: 1 1 20%;
-//         height: 100%
-//     }
-//     .content{
-//         @extend .aside;
-//         flex: 1 1 80%;
-//         overflow-y: auto;
-//         height: calc(100%);
-
-//     }
-//     }
-// }

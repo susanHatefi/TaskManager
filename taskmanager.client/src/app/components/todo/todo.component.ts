@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrl: './todo.component.css'
+  template: '<router-outlet></router-outlet>',
 })
-export class TodoComponent {
-
-}
+export class TodoComponent {}

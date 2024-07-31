@@ -6,7 +6,24 @@
 
  }
     <div class="card-content">
-        <ng-container *ngTemplateOutlet="cardContentTemp ? cardContentTemp : defaultCardContentTemp; contex:{data:cardData}" ></ng-container>
+        <div class="flex-row">
+            <div class="description flex-col">{{description}}</div>
+            <div class="user flex-col">
+                <div>
+                    @if(userProfile){
+                        <img [src]="userProfile" alt="">
+                    }
+                    @else {
+                        <span class="material-icons">person</span>
+                    }
+                </div>
+                <div>{{userFullName}}</div>
+            </div>
+        </div>
+        <div class="flex-row">
+            <ng-container *ngTemplateOutlet="cardContentTemp ? cardContentTemp : defaultCardContentTemp; contex:{data:cardData}" ></ng-container>
+            
+        </div>
     </div>
     @if(showFooter){
         <div class="card-footer">
@@ -19,7 +36,7 @@
 {{data}}
 </ng-template>
 <ng-template #defaultCardContentTemp let-data="cardData">
-
+    
 </ng-template>
 <ng-template #defaultCardFooterTemp let-data="cardData">
 

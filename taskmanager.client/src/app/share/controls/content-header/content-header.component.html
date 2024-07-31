@@ -1,0 +1,31 @@
+<div class="content-header flex-row">
+    <div>
+        <div class="leftSide flex-row">
+            @if(showBack){
+                <span class="material-icons icon" title="Back" (click)="backClick()">arrow_back_ios</span>
+                
+            }
+            @if(showSearch){
+                <input type="search" class="content-header_search" placeholder="search.." (change)="searchChange($event)"/>
+
+            }
+    
+        </div>
+
+    </div>
+    <div>
+        <div class="actions flex-row">
+            @if(showAddAction){
+                <span class="material-icons icon" [title]="addTitle" (click)="addClick()">add</span>
+                
+            }
+            @if(showSaveAction){
+                <span class="material-icons icon" [title]="saveTitle" (click)="saveClick()">save</span>
+    
+            }
+        </div>
+
+    </div>
+</div>
+
+<ng-container *ngIf="search$|async"></ng-container>

@@ -11,12 +11,14 @@
         </header>
         <nav class="nav flex-col">
             @for(item of menuItems;track item.lable){
-                  <a class="nav-item flex-row"  [routerLink]="item.path" > 
+                  <a class="nav-item flex-row"  [routerLink]="[item.path]" > 
                     <span class="material-icons" [title]="item.lable">
                     {{item.icon}}
                       </span> <span class="link-title col-m-12 col-s-0">{{item.lable}}</span></a>
             }
         </nav>        
     </aside>
-    <section class="content"></section>
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
 </main>

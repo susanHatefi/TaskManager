@@ -8,5 +8,5 @@ export interface TodoTaskModel {
   createdDate: Date;
   isCompleted: boolean;
   isDeleted: boolean;
-  parent?: TodoTaskModel;
+  // parent?: TodoTaskModel;
 }

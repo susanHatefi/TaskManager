@@ -1,0 +1,24 @@
+
+@import '../../../../assets/mixins';
+
+.content-header{
+    padding: .5em .3em;
+    justify-content: space-between;
+    .icon{
+        cursor: pointer;
+        &:hover{
+            color: #002fff;
+            font-weight: 600;
+        }
+    }
+    .content-header_search{
+        height: 2em;
+        border-radius: 5px;
+        border: 1px solid gray;
+        position: relative;
+        padding: 0 .3em;
+        
+    }
+    .actions{
+    }
+}

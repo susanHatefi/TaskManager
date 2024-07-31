@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  template: '<router-outlet></router-outlet>',
 })
-export class UserComponent {
-
-}
+export class UserComponent {}

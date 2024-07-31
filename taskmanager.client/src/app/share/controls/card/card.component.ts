@@ -10,6 +10,9 @@ export class CardComponent {
   @Input() cardContentTemp: TemplateRef<any> | null = null;
   @Input() cardFooterTemp: TemplateRef<any> | null = null;
   @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() userProfile: string = '';
+  @Input() userFullName: string = '';
   @Input() showHeader: boolean = true;
   @Input() showFooter: boolean = false;
 }

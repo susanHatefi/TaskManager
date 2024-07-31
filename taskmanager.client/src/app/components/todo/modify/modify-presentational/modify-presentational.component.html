@@ -1,0 +1,90 @@
+<app-content-header [showAddAction]="false" [showSearch]="false" [showBack]="true" [showSaveAction]="true" (onSubmit)="onSubmitForm()"></app-content-header>
+<form class="todo-modify form" [formGroup]="form">
+  
+   <div class="flex-row gp-items">
+     <div class="form-item">
+       <label for="taskType" class="form-label">Task Type</label>
+       <select  class="form-control" id="taskType" (change)="onTaskType($event)">
+         <option value="">--</option>
+         @for(taskType of taskTypes;track taskType){
+           <option [value]="taskType">{{taskType}}</option>
+         }
+       </select> 
+       </div> 
+      <div class="form-item">
+        <label for="status" class="form-label">Status</label>
+        <select  class="form-control" id="status" formControlName="status">
+          <option value="">--</option>
+          @for(status of allStatus;track status){
+            <option [value]="status">{{status}}</option>
+          }
+        </select> 
+      </div>
+      <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="isCompleted" formControlName="isCompleted">
+          <label class="form-check-lbl"  for="isCompleted">Is Compeleted</label>
+      </div>
+   </div>
+   <hr class="divider">
+  <div class="form-item">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" formControlName="title">
+  </div>
+  <div class="form-item">
+    <label for="description" class="form-label">Description</label>
+    <textarea  class="form-control" id="description" formControlName="description"></textarea>
+  </div>
+  <div class="form-item">
+    <label for="dueDate" class="form-label">Due Date</label>
+    <input type="date" class="form-control" id="dueDate" formControlName="dueDate">
+  </div>
+  <div class="form-item" formGroupName="assignedTo">
+    <label for="assignedTo" class="form-label">Assigned To</label>
+    <select  class="form-control" id="assignedTo" formControlName="id" (change)="onAssinedToCahnge($event)">
+      <option value="3fa85f64-5717-4562-b3fc-2c963f66afa6">Susan Hatefi</option>
+    </select>
+  </div>
+  
+  @if(taskType==="Feature"){
+  <hr class="divider">
+  <!-- feature -->
+  <div class="form-item">
+    <label for="priority" class="form-label">Priority</label>
+    <input type="number" class="form-control" id="priority" formControlName="priority">
+  </div>
+  <div class="form-item">
+    <label for="component" class="form-label">Component</label>
+    <input type="text" class="form-control" id="component" formControlName="component">
+  </div>
+  <!-- end feature -->
+
+}
+
+    
+@if(taskType==="Bug"){
+  <hr class="divider">
+  
+  <!-- bug -->
+  <div class="form-item">
+   <label for="severity" class="form-label">Severity</label>
+   <select  class="form-control" id="severity" formControlName="severity">
+     @for(item of severity;track item){
+       <option [value]="item">{{item}}</option>
+     }
+   </select>
+ </div>
+ <div class="form-item">
+   <label for="affectedVersion" class="form-label">Affected Version</label>
+   <input type="text" class="form-control" id="affectedVersion" formControlName="affectedVersion">
+ </div>
+ <div class="form-item">
+   <label for="images" class="form-label">Attachments</label>
+   <app-fileupload  class="form-control" id="images"/>
+ </div>
+  <!-- end bug-->
+
+}
+    
+    
+
+</form>

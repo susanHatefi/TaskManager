@@ -1,0 +1,13 @@
+<app-content-header (onAdd)="addNewTask()" (onSearch)="searchInTasks($event)"></app-content-header>
+<div class="todo-view flex-row">
+    @for(item of status;let index=$index;track item;){
+        <div class="flex-col item">
+            <div class="item-title">
+                <h4>{{item}}</h4>
+            </div>
+            @for(card of cards;track card.id){
+                <app-card [title]="card.title" [description]="card.description" ></app-card>
+            }
+        </div>
+    }
+</div>

@@ -3,12 +3,12 @@ import { MenuItemModel } from './reference';
 export const MenuItems: MenuItemModel[] = [
   {
     lable: 'Board',
-    path: '/board',
+    path: 'board',
     icon: 'grid_view',
   },
   {
     lable: 'Developers',
-    path: '/developer',
+    path: 'developer',
     icon: 'person',
   },
 ];

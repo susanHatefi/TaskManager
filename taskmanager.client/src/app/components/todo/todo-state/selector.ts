@@ -11,3 +11,8 @@ export const getShowAssignedTo = createSelector(
   getTodoFeatureState,
   (state) => state.showAssignedTo
 );
+
+export const getToDoList = createSelector(
+  getTodoFeatureState,
+  (state) => state.list
+);

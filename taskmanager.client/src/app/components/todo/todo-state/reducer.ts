@@ -5,7 +5,7 @@ import * as ApiActions from '../todo-state/action.api';
 
 const initialState: ToDoState = {
   showAssignedTo: false,
-  list: [],
+  list:null,
 };
 
 export const reducer = createReducer<ToDoState>(
@@ -21,7 +21,7 @@ export const reducer = createReducer<ToDoState>(
     (state, { todoList }): ToDoState => {
       return {
         ...state,
-        list: [...todoList],
+        list: {...todoList},
       };
     }
   )

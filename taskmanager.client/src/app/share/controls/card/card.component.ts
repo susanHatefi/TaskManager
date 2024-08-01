@@ -15,4 +15,5 @@ export class CardComponent {
   @Input() userFullName: string = '';
   @Input() showHeader: boolean = true;
   @Input() showFooter: boolean = false;
+  @Input() cardData: any[] = [];
 }

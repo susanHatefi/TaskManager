@@ -1,35 +1,38 @@
 <div class="card">
  @if(showHeader){
      <div class="card-header">
-         <ng-container *ngTemplateOutlet="cardHeaderTemp ? cardHeaderTemp : defaultCardHeaderTemp; contex:{title:title}" ></ng-container>
+         <ng-container *ngTemplateOutlet="cardHeaderTemp ? cardHeaderTemp : defaultCardHeaderTemp; context:{title:title}" ></ng-container>
      </div>
 
  }
     <div class="card-content">
-        <div class="flex-row">
+        <div class="flex-row card-content_item">
+        @if(cardContentTemp){
+            <ng-container *ngTemplateOutlet="cardContentTemp ? cardContentTemp : defaultCardContentTemp; context:{data:cardData}" ></ng-container>
+        }
+        @else {
             <div class="description flex-col">{{description}}</div>
-            <div class="user flex-col">
-                <div>
-                    @if(userProfile){
-                        <img [src]="userProfile" alt="">
-                    }
-                    @else {
-                        <span class="material-icons">person</span>
-                    }
-                </div>
-                <div>{{userFullName}}</div>
-            </div>
-        </div>
-        <div class="flex-row">
-            <ng-container *ngTemplateOutlet="cardContentTemp ? cardContentTemp : defaultCardContentTemp; contex:{data:cardData}" ></ng-container>
-            
+        }
         </div>
     </div>
     @if(showFooter){
         <div class="card-footer">
-            <ng-container *ngTemplateOutlet="cardFooterTemp ? cardFooterTemp : defaultCardFooterTemp; contex:{data:cardData}" ></ng-container>
+            @if(cardFooterTemp){
+                <ng-container *ngTemplateOutlet="cardFooterTemp ? cardFooterTemp : defaultCardFooterTemp; context:{data:cardData}" ></ng-container>
+            }
+            @else {
+                <div class="flex-col info">
+                    <div>
+                        @if(userProfile){
+                            <img [src]="userProfile" alt="" [title]="userFullName">
+                        }
+                        @else {
+                            <span class="material-icons" [title]="userFullName">person</span>
+                        }
+                    </div>
+                </div>
+            }
         </div>
-
     }
 </div>
 <ng-template #defaultCardHeaderTemp let-data="title">

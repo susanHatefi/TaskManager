@@ -1,12 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Status, TaskType } from '../../../reference';
+import { KeyValue, Status, TaskType } from '../../../reference';
 import moment from 'moment';
 import {
   BugRepository,
   FeatureRepository,
   TodoTaskRepository,
 } from '../../../core/reference';
+import { Router } from '@angular/router';
+import {
+  combineLatest,
+  concat,
+  map,
+  mergeMap,
+  Subject,
+  switchMap,
+  tap,
+} from 'rxjs';
 
 @Component({
   selector: 'todo-modify',
@@ -15,7 +25,26 @@ import {
 })
 export class ModifyComponent implements OnInit {
   form: FormGroup = new FormGroup({});
+  createSubject: Subject<KeyValue> = new Subject();
+  create$ = combineLatest([this.createSubject.asObservable()]).pipe(
+    switchMap(([data]) => {
+      switch (data.taskType) {
+        case TaskType.Feature:
+          return this.featureRepository.create(data.value);
+          break;
+        case TaskType.Bug:
+          return this.bugRepository.create(data.value);
+          break;
+
+        default:
+          return this.todoTaskRepository.create(data.value);
+          break;
+      }
+    }),
+    tap((data) => this.router.navigateByUrl('/board'))
+  );
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private featureRepository: FeatureRepository,
     private bugRepository: BugRepository,
@@ -59,24 +88,10 @@ export class ModifyComponent implements OnInit {
     });
   }
 
-  saveForm(data: any) {
-    switch (data.taskType) {
-      case TaskType.Feature:
-        this.featureRepository
-          .create(data.value)
-          .subscribe((data) => console.log(data));
-        break;
-      case TaskType.Bug:
-        this.bugRepository
-          .create(data.value)
-          .subscribe((data) => console.log(data));
-        break;
-
-      default:
-        this.todoTaskRepository
-          .create(data.value)
-          .subscribe((data) => console.log(data));
-        break;
-    }
+  saveForm(data: KeyValue) {
+    this.createSubject.next(data);
+  }
+  navigateBack() {
+    this.router.navigateByUrl('/board');
   }
 }

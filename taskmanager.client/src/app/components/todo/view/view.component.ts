@@ -6,6 +6,7 @@ import * as PageActions from '../todo-state/action.page';
 import * as ApiActions from '../todo-state/action.api';
 import * as Selectors from '../todo-state/selector';
 import { Observable, of } from 'rxjs';
+import { BoardModel } from '../../../reference';
 
 @Component({
   selector: 'app-view',
@@ -13,10 +14,10 @@ import { Observable, of } from 'rxjs';
   styleUrl: './view.component.scss',
 })
 export class ViewComponent implements OnInit {
-  list$: Observable<any[]> = of([]);
+  list$: Observable<BoardModel|null>;
 
   constructor(private router: Router, private store: Store<State>) {
-    // this.list$ = this.store.select(Selectors.getToDoList);
+    this.list$ = this.store.select(Selectors.getToDoList);
   }
 
   ngOnInit(): void {

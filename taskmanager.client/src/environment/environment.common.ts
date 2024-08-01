@@ -14,6 +14,7 @@ export const commonEnvironment = {
     todoTask: {
       mainUrl: '/TodoTask',
       create: '/create',
+      getAll: '',
     },
     todos: {
       mainUrl: '/Todos',

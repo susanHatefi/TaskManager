@@ -1,8 +1,55 @@
 @import '../../../../assets/mixins';
-.card-content{
+@import '../../../../assets/general';
+@import '../../../../assets/variables';
+
+
+:host{
+    width: 100%;
+}
+*{
+    box-sizing: border-box;
+}
+.card{
     border-radius: 5px;
     background-color: #fff;
     width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
+    margin: .1em 0;
+    &-header{
+        font-weight: 600;
+        color: $primary;
+        padding: .5em ;
+        border-bottom: 1px solid $lightGray;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; 
+        display: inline-block;
+        width: 11em;
+    }
+    &-content{
+        padding: .5em;
+        font-size: .95em;
+        height: 5em;
+        overflow: hidden;
+        overflow-y: auto;
+        &_item{
+            width: 100%;
+            justify-content: flex-start;
+            .description{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                /* white-space: nowrap; */
+                /* width: 140px; */
+                display: inline-block;
+            }
+        }
+    }
+    &-footer{
+        padding: .5em;
+        .info{
+            align-items: flex-end;
+            color: red;
+        }
+    }
 
 }

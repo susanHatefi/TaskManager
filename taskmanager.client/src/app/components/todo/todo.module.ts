@@ -12,6 +12,8 @@ import {
   ViewComponent,
 } from './todo-reference';
 import { ShareModule } from '../../share/share.module';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoFeatureEffects } from './todo-state/effects';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ShareModule } from '../../share/share.module';
     ShareModule,
     ReactiveFormsModule,
     StoreModule.forFeature('todo', reducer),
+    EffectsModule.forFeature([TodoFeatureEffects]),
     TodoRoutingModule,
   ],
 })

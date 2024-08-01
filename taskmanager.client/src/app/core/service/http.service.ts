@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private httpClient: HttpClient) {}
 
   get(param: HttpParamModel): any {
-    this.httpClient.get(param.url, { headers: this.header });
+    return this.httpClient.get(param.url, { headers: this.header });
   }
 
   post(param: HttpParamModel): any {

@@ -7,15 +7,17 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     StoreModule.forRoot({ app: reducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

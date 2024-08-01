@@ -1,4 +1,4 @@
-<app-content-header [showAddAction]="false" [showSearch]="false" [showBack]="true" [showSaveAction]="true" (onSubmit)="onSubmitForm()"></app-content-header>
+<app-content-header [showAddAction]="false" [showSearch]="false" [showBack]="true" [showSaveAction]="true" (onBack)="onNavigateBack()" (onSubmit)="onSubmitForm()"></app-content-header>
 <form class="todo-modify form" [formGroup]="form">
   
    <div class="flex-row gp-items">

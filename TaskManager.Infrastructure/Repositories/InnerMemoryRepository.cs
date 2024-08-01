@@ -8,7 +8,7 @@ namespace TaskManager.Infrastructure.Repositories;
 
 public class InnerMemoryRepository<T> : IRepository<T> where T : ToDo, new()
 {
-    public ConcurrentDictionary<Guid, T> CollectionOfData { get; } = new();
+    public static ConcurrentDictionary<Guid, T> CollectionOfData { get; } = new();
     public Task<T> AddAsync(T entity)
     {
         CollectionOfData.TryAdd(entity.Id, entity);

@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Severity, Status, TaskType } from '../../../../reference';
+import { KeyValue, Severity, Status, TaskType } from '../../../../reference';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -20,7 +20,8 @@ export class ModifyPresentationalComponent implements OnInit {
   taskTypes: string[] = Object.keys(TaskType);
   allStatus: string[] = Object.keys(Status);
   @Input() form: FormGroup = new FormGroup({});
-  @Output() saveForm: EventEmitter<any> = new EventEmitter<any>();
+  @Output() saveForm: EventEmitter<KeyValue> = new EventEmitter<KeyValue>();
+  @Output() navigateBack: EventEmitter<any> = new EventEmitter<any>();
 
   RemoveControlsForFeature: string[] = [
     'severity',
@@ -66,9 +67,14 @@ export class ModifyPresentationalComponent implements OnInit {
 
     this.form.get('assignedTo.fullName')?.setValue(SelectedOption.text);
   }
+
+  onNavigateBack() {
+    this.navigateBack.emit();
+  }
+
   onSubmitForm() {
     if (this.form.valid) {
-      this.saveForm.emit({value:this.form.value, taskType:this.taskType});
+      this.saveForm.emit({ value: this.form.value, taskType: this.taskType });
     }
   }
 }

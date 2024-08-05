@@ -5,7 +5,8 @@ import * as ApiActions from '../todo-state/action.api';
 
 const initialState: ToDoState = {
   showAssignedTo: false,
-  list:null,
+  list: null,
+  selectedTask: null,
 };
 
 export const reducer = createReducer<ToDoState>(
@@ -21,7 +22,17 @@ export const reducer = createReducer<ToDoState>(
     (state, { todoList }): ToDoState => {
       return {
         ...state,
-        list: {...todoList},
+        list: { ...todoList },
+        selectedTask: null,
+      };
+    }
+  ),
+  on(
+    PageActions.setSelectedCardForModifyAction,
+    (state, { selectedCard }): ToDoState => {
+      return {
+        ...state,
+        selectedTask: selectedCard,
       };
     }
   )

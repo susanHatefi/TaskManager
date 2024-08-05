@@ -11,6 +11,13 @@ export enum Status {
   Done = 'Done',
 }
 
+export enum ToDoStatus {
+  Todo = 'Todo',
+  InProgress = 'InProgress',
+  InReview = 'InReview',
+  Done = 'Done',
+}
+
 export enum TaskType {
   Bug = 'Bug',
   Feature = 'Feature',

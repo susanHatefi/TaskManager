@@ -22,6 +22,7 @@ export class PresentationalComponent {
 
   @Output() onCreateTask: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSearchTask: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onModifyTask: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -34,5 +35,8 @@ export class PresentationalComponent {
   getCards(cards: BoardModel, index: number): any[] {
     const key = this.statusKeys[index] as keyof BoardModel;
     return cards[key];
+  }
+  onClickTask(event: any) {
+    this.onModifyTask.emit(event);
   }
 }

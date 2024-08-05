@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -11,15 +11,8 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'developer',
-    loadChildren: () =>
-      import('./components/user/user.module').then(
-        (module) => module.UserModule
-      ),
-  },
-  {
     path: 'home',
-    component: AppComponent,
+    component: WelcomeComponent,
   },
   {
     path: '',

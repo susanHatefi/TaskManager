@@ -10,6 +10,7 @@
             </div>
         </header>
         <nav class="nav flex-col">
+           
             @for(item of menuItems;track item.lable){
                   <a class="nav-item flex-row"  [routerLink]="[item.path]" > 
                     <span class="material-icons" [title]="item.lable">
@@ -19,6 +20,10 @@
         </nav>        
     </aside>
     <section class="content">
+        @if(showSpinner$ | async){
+            <app-spinner></app-spinner>
+
+        }
         <router-outlet></router-outlet>
     </section>
 </main>

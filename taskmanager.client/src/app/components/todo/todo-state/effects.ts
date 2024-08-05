@@ -18,7 +18,6 @@ export class TodoFeatureEffects {
       ofType(ApiActions.loadingTodoBoardAction),
       exhaustMap((action) =>
         this.todoRepository.getBoardData().pipe(
-          tap((data) => console.log(data)),
           map(
             (data) =>
               ApiActions.SuccessToloadTodoBoardAction({

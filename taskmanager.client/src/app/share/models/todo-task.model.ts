@@ -1,4 +1,4 @@
-import { UserModel } from '../reference';
+import { TaskType, ToDoStatus, UserModel } from '../reference';
 
 export interface TodoTaskModel {
   id: string;
@@ -8,5 +8,7 @@ export interface TodoTaskModel {
   createdDate: Date;
   isCompleted: boolean;
   isDeleted: boolean;
+  status: ToDoStatus;
+  taskType?: TaskType;
   // parent?: TodoTaskModel;
 }

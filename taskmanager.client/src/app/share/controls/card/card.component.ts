@@ -1,4 +1,10 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -15,5 +21,10 @@ export class CardComponent {
   @Input() userFullName: string = '';
   @Input() showHeader: boolean = true;
   @Input() showFooter: boolean = false;
-  @Input() cardData: any[] = [];
+  @Input() cardData: any;
+  @Output() OnCardClick: EventEmitter<any> = new EventEmitter<any>();
+
+  onClick() {
+    this.OnCardClick.emit(this.cardData);
+  }
 }

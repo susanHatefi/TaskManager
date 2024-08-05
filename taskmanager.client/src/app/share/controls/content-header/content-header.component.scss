@@ -1,5 +1,6 @@
 
 @import '../../../../assets/mixins';
+@import '../../../../assets/variables';
 
 .content-header{
     padding: .5em .3em;
@@ -11,6 +12,24 @@
             font-weight: 600;
         }
     }
+    .btn{
+        padding:.5em 1em ;
+        border: none;
+        background-color: transparent;
+        opacity: .7;
+
+        &:hover{
+            opacity: 1;
+        }
+        &.disabled{
+            background-color: $activeGray !important;
+            color: $darkGray;
+            opacity: 1;
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
+    }
     .content-header_search{
         height: 2em;
         border-radius: 5px;
@@ -20,5 +39,19 @@
         
     }
     .actions{
+        .error{
+            color:$brightRed ;
+            font-size: .85em;
+            font-weight: 600;
+            padding: 0 1em;
+        }
+        .btn{
+            border-radius: 5px;
+            color: #fff;
+            &:hover{
+                opacity: 1;
+            }
+            
+        }
     }
 }

@@ -1,3 +1,5 @@
+
+export * from '../interceptor/loader.interceptor';
 export * from '../repository/contract/repo.interface';
 export * from '../service/http.service';
 export * from '../repository/contract/todo-task.interface';

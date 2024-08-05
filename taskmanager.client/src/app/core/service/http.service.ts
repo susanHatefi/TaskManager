@@ -19,6 +19,12 @@ export class HttpService {
     });
   }
 
+  put(param: HttpParamModel): any {
+    return this.httpClient.put(param.url, param.data ?? {}, {
+      headers: this.header,
+    });
+  }
+
   delete(param: HttpParamModel): any {
     const options = {
       headers: this.header,

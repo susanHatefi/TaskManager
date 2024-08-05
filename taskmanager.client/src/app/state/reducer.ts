@@ -6,9 +6,10 @@ const initialState: AppState = { showLoader: false };
 
 export const reducer = createReducer(
   initialState,
-  on(PageActions.toggleSpinner, (state) => {
+  on(PageActions.toggleSpinner, (state): AppState => {
     return {
       ...state,
+      showLoader: !state.showLoader,
     };
   })
 );

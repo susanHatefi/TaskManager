@@ -23,9 +23,12 @@ export class ContentHeaderComponent implements OnDestroy {
   @Input() saveTitle: string = 'Submit';
   @Input() addTitle: string = 'Add New Task';
   @Input() showSaveAction: boolean = false;
+  @Input() hasError: boolean = false;
+  @Input() disabledSaveAction: boolean = true;
   @Input() showAddAction: boolean = true;
   @Input() showBack: boolean = false;
   @Input() showSearch: boolean = true;
+  @Input() bgColor: string = '#002fff';
 
   @Output() onSubmit: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onAdd: EventEmitter<boolean> = new EventEmitter<boolean>();

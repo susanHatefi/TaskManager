@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="onClick()">
  @if(showHeader){
      <div class="card-header">
          <ng-container *ngTemplateOutlet="cardHeaderTemp ? cardHeaderTemp : defaultCardHeaderTemp; context:{title:title}" ></ng-container>

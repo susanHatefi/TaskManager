@@ -1,4 +1,13 @@
-import { createFeatureSelector, createSelectorFactory } from "@ngrx/store";
+import {
+  createFeatureSelector,
+  createSelector,
+  createSelectorFactory,
+} from '@ngrx/store';
+import { AppState } from './state';
 
-const generateSelector=createFeatureSelector("app")
+const generateSelector = createFeatureSelector<AppState>('app');
 
+export const showSpinnerSelector = createSelector(
+  generateSelector,
+  (state) => state.showLoader
+);

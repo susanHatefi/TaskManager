@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  BugModel
-} from '../../share/reference';
+import { BugModel } from '../../share/reference';
 import { BugInterface, FeatureInterface, HttpService } from '../reference';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environment/environment';
@@ -24,6 +22,13 @@ export class BugRepository implements BugInterface<BugModel> {
       data,
     });
   }
-  update: ((data: BugModel) => Observable<BugModel>) | undefined;
-  delete: ((data: BugModel) => Observable<boolean>) | undefined;
+  update(data: BugModel): Observable<any> {
+    return this.httpService.put({
+      url: `${this.baseURL}${environment.composite.bug.update}`,
+      data,
+    });
+  }
+  delete(id:string):Observable<any>{
+    return this.httpService.delete({url:`${this.baseURL}${environment.composite.bug.delete}`,data:id})
+  }
 }

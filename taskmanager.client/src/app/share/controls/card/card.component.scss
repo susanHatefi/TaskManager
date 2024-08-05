@@ -15,6 +15,7 @@
     width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
     margin: .1em 0;
+    cursor: pointer;
     &-header{
         font-weight: 600;
         color: $primary;
@@ -24,7 +25,7 @@
         text-overflow: ellipsis;
         white-space: nowrap; 
         display: inline-block;
-        width: 11em;
+        width: calc(100%);
     }
     &-content{
         padding: .5em;
@@ -38,8 +39,6 @@
             .description{
                 overflow: hidden;
                 text-overflow: ellipsis;
-                /* white-space: nowrap; */
-                /* width: 140px; */
                 display: inline-block;
             }
         }

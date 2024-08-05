@@ -1,22 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { KeyValue, Status, TaskType } from '../../../reference';
+import { GenericValidator, TaskType, TodoFormValue } from '../../../reference';
 import moment from 'moment';
 import {
   BugRepository,
   FeatureRepository,
   TodoTaskRepository,
 } from '../../../core/reference';
-import { Router } from '@angular/router';
-import {
-  combineLatest,
-  concat,
-  map,
-  mergeMap,
-  Subject,
-  switchMap,
-  tap,
-} from 'rxjs';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { combineLatest, Subject, switchMap, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from '../todo-state/state';
+import * as Selectors from '../todo-state/selector';
 
 @Component({
   selector: 'todo-modify',
@@ -25,19 +20,25 @@ import {
 })
 export class ModifyComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  createSubject: Subject<KeyValue> = new Subject();
+  createSubject: Subject<TodoFormValue> = new Subject();
   create$ = combineLatest([this.createSubject.asObservable()]).pipe(
     switchMap(([data]) => {
       switch (data.taskType) {
         case TaskType.Feature:
-          return this.featureRepository.create(data.value);
+          return data.isEdit
+            ? this.featureRepository.update(data.value)
+            : this.featureRepository.create(data.value);
           break;
         case TaskType.Bug:
-          return this.bugRepository.create(data.value);
+          return data.isEdit
+            ? this.bugRepository.update(data.value)
+            : this.bugRepository.create(data.value);
           break;
 
         default:
-          return this.todoTaskRepository.create(data.value);
+          return data.isEdit
+            ? this.todoTaskRepository.update(data.value)
+            : this.todoTaskRepository.create(data.value);
           break;
       }
     }),
@@ -48,8 +49,10 @@ export class ModifyComponent implements OnInit {
     private fb: FormBuilder,
     private featureRepository: FeatureRepository,
     private bugRepository: BugRepository,
-    private todoTaskRepository: TodoTaskRepository
+    private todoTaskRepository: TodoTaskRepository,
+    private store: Store<State>
   ) {}
+  selectedTask$ = this.store.select(Selectors.getSelectedTask);
   ngOnInit(): void {
     this.form = this.fb.group({
       id: this.fb.control({ value: '', disabled: true }),
@@ -57,22 +60,23 @@ export class ModifyComponent implements OnInit {
         Validators.required,
       ]),
       description: this.fb.control({ value: '', disabled: false }),
-      dueDate: this.fb.control({ value: '', disabled: false }),
+      dueDate: this.fb.control({ value: '', disabled: false }, [
+        Validators.required,
+      ]),
       assignedTo: this.fb.group({
-        id: this.fb.control({ value: '', disabled: false }, [
-          Validators.required,
-        ]),
+        id: this.fb.control({ value: '', disabled: false }),
         fullName: this.fb.control({ value: '', disabled: false }),
       }),
-      isCompleted: this.fb.control({ value: false, disabled: false }),
-      isDeleted: this.fb.control({ value: false, disabled: false }),
+      isCompleted: this.fb.control({ value: false, disabled: true }),
+      isDeleted: this.fb.control({ value: false, disabled: true }),
       status: this.fb.control({
         value: 'Todo',
-        disabled: false,
+        disabled: true,
       }),
 
       priority: this.fb.control({ value: '', disabled: false }, [
         Validators.required,
+        new GenericValidator().rangeValidation(1, 4),
       ]),
       component: this.fb.control({ value: '', disabled: false }, [
         Validators.required,
@@ -88,7 +92,10 @@ export class ModifyComponent implements OnInit {
     });
   }
 
-  saveForm(data: KeyValue) {
+  saveForm(data: TodoFormValue) {
+    if (!data.value.assignedTo.id) {
+      delete data?.value.assignedTo;
+    }
     this.createSubject.next(data);
   }
   navigateBack() {

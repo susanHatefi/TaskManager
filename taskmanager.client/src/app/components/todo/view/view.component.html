@@ -1,1 +1,1 @@
-<todo-view-presentational (onCreateTask)="createTask()" (onSearchTask)="filterData($event)"  [cards]="(list$ | async)"></todo-view-presentational>
+<todo-view-presentational (onCreateTask)="createTask()" (onSearchTask)="filterData($event)"  [cards]="(list$ | async)" (onModifyTask)="onModifyTask($event)"></todo-view-presentational>

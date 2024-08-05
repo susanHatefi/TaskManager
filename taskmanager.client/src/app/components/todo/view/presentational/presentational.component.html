@@ -8,7 +8,7 @@
             </div>
             @if(cards){
                 @for(card of getCards(cards,index);track card.id){
-                    <app-card [title]="card.title" [description]="card.description" [showFooter]="true" ></app-card>
+                    <app-card [title]="card.title" [description]="card.description" [showFooter]="true" [cardData]="card" (OnCardClick)="onClickTask($event)"></app-card>
                 }
                 
             }

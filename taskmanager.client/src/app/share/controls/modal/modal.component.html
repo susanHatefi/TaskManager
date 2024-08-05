@@ -1,0 +1,22 @@
+<div class="dialog dialog-container" [ngClass]="customClass" [ngClass]="{'dialogConfirm':data.type==='confirm'}"
+    [ngStyle]="customStyle">
+    <div class="dialog__header">
+        <h3 mat-dialog-title>{{data.headerTitle}}</h3>
+        <span class="material-icons icon--close" (click)="onTopClose()">close</span>
+    </div>
+    <mat-dialog-content class="dialog__content">
+        <ng-container *ngComponentOutlet="data.component"></ng-container>
+        <section *ngIf="data.type==='confirm'" class="confirm">
+            <span class="material-icons icon"></span>
+            <span class="innerContent" [innerHTML]=""></span>
+            <section class="btn" *ngIf="data.type==='confirm'">
+                <button class="btn__create"
+                    (click)="onClose('ok')" type="submit">{{data.saveTitle}}</button>
+                <button class="btn__cancel"  type="button"
+                    (click)="onClose('cancel')">{{data.cancelTitle}}
+                </button>
+            </section>
+        </section>
+    </mat-dialog-content>
+
+</div>

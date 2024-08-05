@@ -1,6 +1,7 @@
-import { TaskType } from "./enums"
+import { TaskType } from './enums';
 
-export type KeyValue={
-    value:any,
-    taskType:TaskType
-}
+export type TodoFormValue = {
+  value: any;
+  taskType: TaskType;
+  isEdit: boolean;
+};

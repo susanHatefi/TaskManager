@@ -38,6 +38,32 @@
   padding: 0 .2em;
 }
 
+*{
+  box-sizing: border-box;
+  *:focus {
+     outline: 1px solid #ced4da;
+}
+}
+
+[required]{
+  position: relative;
+  &::after{
+    content: "*";
+    color: red;
+    position: absolute;
+    top: -.36em;
+    padding:0 0.2em; 
+  }
+  
+}
+label:has(+ [required])
+{
+  @extend [required];
+  
+ }
+
+ 
+
 
 html,
 body {
@@ -51,7 +77,6 @@ body {
   font-size: 1rem;
   color: #212529;
 }
-
 
 
 //769-1024
@@ -77,3 +102,8 @@ body {
   }
   
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

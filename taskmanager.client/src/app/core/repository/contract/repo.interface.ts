@@ -5,5 +5,5 @@ export abstract class RepoInterface<T> {
   getAll: (() => Observable<T[]> | []) | undefined;
   create: ((data: T | any) => Observable<T | any>) | undefined;
   update: ((data: T) => Observable<T>) | undefined;
-  delete: ((data: T) => Observable<boolean>) | undefined;
+  delete: ((id:string) => Observable<boolean>) | undefined;
 }

@@ -6,15 +6,20 @@ export const commonEnvironment = {
     feature: {
       mainUrl: '/Feature',
       create: '/create',
+      update: '/update',
+      delete: '/delete',
     },
     bug: {
       mainUrl: '/Bug',
       create: '/create',
+      update: '/update',
+      delete: '/delete',
     },
     todoTask: {
       mainUrl: '/TodoTask',
       create: '/create',
-      getAll: '',
+      update: '/update',
+      delete: '/delete',
     },
     todos: {
       mainUrl: '/Todos',

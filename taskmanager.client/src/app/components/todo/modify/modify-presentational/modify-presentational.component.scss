@@ -1,13 +1,51 @@
+@import "../../../../../assets/variables";
 @import "../../../../../assets/general";
 
 .todo-modify{
-    .gp-items{
-        .form-item{
-            margin-right: 1em;
+    .date-container{
+        width: 30%;
+        position: relative;
+        align-self: flex-start;
+        height: 25em;
+        &.inValid{
+            background-color: $brightRed;
+            opacity: .5;
+        }
+        .mat-calendar{
+            width: 100%;
+            
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+top: 0;
+right: -1.28em;
+    bottom: 0;
+    border: 1px solid $lightGray;        }
+    }
+    .corporate-items{
+        align-items: flex-start;
+        .right-items{
+            flex: 1;
+            padding: 0 0  0 3em;
+            .form-item{
+                width: 100%;
+                .txtArea{
+                    height: 8.5em;
+                }
+            }
+            .gp-items{
+                width: 100%;
+                .form-item{
+                    margin-right: 1em;
+                }
+            }
 
         }
     }
     .divider{
-        margin: 1.5em 0 2em 0;
+        margin: 1em 0;
+        border:1px solid $lightGray;
     }
 }

@@ -26,6 +26,17 @@ export class FeatureRepository implements FeatureInterface<FeatureModel> {
       data,
     });
   }
-  update: ((data: FeatureModel) => Observable<FeatureModel>) | undefined;
-  delete: ((data: FeatureModel) => Observable<boolean>) | undefined;
+
+  update(data: FeatureModel): Observable<any> {
+    return this.httpService.put({
+      url: `${this.baseURL}${environment.composite.feature.update}`,
+      data,
+    });
+  }
+  delete(id: string): Observable<any> {
+    return this.httpService.delete({
+      url: `${this.baseURL}${environment.composite.feature.delete}`,
+      data: id,
+    });
+  }
 }

@@ -14,6 +14,8 @@ import {
 import { ShareModule } from '../../share/share.module';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoFeatureEffects } from './todo-state/effects';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TodoFeatureEffects } from './todo-state/effects';
     CommonModule,
     ShareModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('todo', reducer),
+    MatDatepickerModule,
+    MatCardModule,
+        StoreModule.forFeature('todo', reducer),
     EffectsModule.forFeature([TodoFeatureEffects]),
     TodoRoutingModule,
   ],

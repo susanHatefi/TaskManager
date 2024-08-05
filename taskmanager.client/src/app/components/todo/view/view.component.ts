@@ -14,7 +14,7 @@ import { BoardModel } from '../../../reference';
   styleUrl: './view.component.scss',
 })
 export class ViewComponent implements OnInit {
-  list$: Observable<BoardModel|null>;
+  list$: Observable<BoardModel | null>;
 
   constructor(private router: Router, private store: Store<State>) {
     this.list$ = this.store.select(Selectors.getToDoList);
@@ -28,4 +28,11 @@ export class ViewComponent implements OnInit {
     this.router.navigateByUrl('board/create');
   }
   filterData(value: string) {}
+
+  onModifyTask(value: any) {
+    this.store.dispatch(
+      PageActions.setSelectedCardForModifyAction({ selectedCard: value })
+    );
+    this.router.navigateByUrl(`board/${value.id}/edit`);
+  }
 }

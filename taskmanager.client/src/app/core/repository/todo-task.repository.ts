@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BoardModel, HttpParamModel, TodoTaskModel } from '../../share/reference';
+import {
+  BoardModel,
+  HttpParamModel,
+  TodoTaskModel,
+} from '../../share/reference';
 import { HttpService, TodoTaskInterface } from '../reference';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environment/environment';
@@ -18,7 +22,7 @@ export class TodoTaskRepository implements TodoTaskInterface<TodoTaskModel> {
   search: ((filter: any) => Observable<TodoTaskModel[]>) | undefined;
   getAll(): Observable<TodoTaskModel[]> {
     return this.httpService.get({
-      url: `${this.baseTodoUrl}${environment.composite.todoTask.getAll}`,
+      url: `${this.baseTodoUrl}`,
     });
   }
   getBoardData(): Observable<BoardModel> {
@@ -33,6 +37,17 @@ export class TodoTaskRepository implements TodoTaskInterface<TodoTaskModel> {
       data,
     });
   }
-  update: ((data: TodoTaskModel) => Observable<TodoTaskModel>) | undefined;
-  delete: ((data: TodoTaskModel) => Observable<boolean>) | undefined;
+
+  update(data: TodoTaskModel): Observable<any> {
+    return this.httpService.put({
+      url: `${this.baseURL}${environment.composite.todoTask.update}`,
+      data,
+    });
+  }
+  delete(id: string): Observable<any> {
+    return this.httpService.delete({
+      url: `${this.baseURL}${environment.composite.todoTask.delete}`,
+      data: id,
+    });
+  }
 }

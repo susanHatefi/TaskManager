@@ -12,7 +12,6 @@ public static class DataToDomain
             Bug bug => ToDomainBug(bug),
             Feature feature => ToDomainFeature(feature),
             ToDoTask task => ToDomainTask(task),
-            User user => ToDomainUser(user),
             _ => throw new NotImplementedException()
         };
         return (D)domianData;
@@ -51,7 +50,7 @@ public static class DataToDomain
         return domainFeature;
     }
 
-    private static Domain.IToDo ToDomainUser(User? user)
+    private static Domain.User ToDomainUser(User? user)
     {
         if (user == null) return null!;
         var domainUser = new Domain.User(user.FullName)

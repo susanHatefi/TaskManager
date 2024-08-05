@@ -1,10 +1,16 @@
+using Microsoft.OpenApi.Any;
+using System.Text.Json.Serialization;
 using TaskManager.Infrastructure.DependencyInjection;
 using TaskManager.Infrastructure.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+;
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDataAccess();

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManager.Domain.Enum;
 using TaskManager.Infrastructure.Contracts;
 using TaskManager.Infrastructure.Entities;
 using TaskManager.Infrastructure.Mapping;
@@ -31,8 +32,6 @@ namespace TaskManager.Server.Controllers
                     Id = Guid.NewGuid()
 
                 };
-
-
                 var newTodoTask = new Domain.ToDoTask()
                 {
                     Title=todoTask.Title,
@@ -49,7 +48,46 @@ namespace TaskManager.Server.Controllers
             }
         }
 
+        [HttpPut]
+        public async Task Update(Domain.UpdateToDoTask todoTask)
+        {
+            try
+            {
+                if (todoTask == null)
+                {
+                    throw new ArgumentNullException(nameof(todoTask));
 
+                }
+                TodoStatus status;
+
+                if (!Enum.TryParse<TodoStatus>(todoTask.status, out status))
+                {
+                    throw new ArgumentException(nameof(status));
+                }
+                var modifiedToDoTask = new Domain.ToDoTask() with
+                {
+                    Id = todoTask.Id,
+                    Description = todoTask.Description,
+                    Title = todoTask.Title,
+                    DueDate = todoTask.DueDate,
+                    IsCompeted = todoTask.IsCompeleted,
+                    status = status,
+                };
+                await _repository.UpdateAsync(modifiedToDoTask.AsData<Domain.ToDoTask,ToDoTask>());
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        public async Task Delete(Guid Id)
+        {
+            await _repository.SoftDeleteAsync(Id);
+        }
 
     }
 }

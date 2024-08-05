@@ -49,4 +49,19 @@ public class SqlRepository<T> : IRepository<T> where T : ToDo, new()
     {
         await _dbContext.SaveChangesAsync();
     }
+
+    public Task<T> GetByAsync(Guid Id)
+    {
+        var item=_dbContext.Set<T>().First(item => item.Id == Id);
+        return Task.FromResult(item);
+    }
+
+    public async Task SoftDeleteAsync(Guid Id)
+    {
+        var item=await GetByAsync(Id);
+        item.IsDeleted = true;
+        await UpdateAsync(item);
+        await SaveChangesAsync();
+
+    }
 }

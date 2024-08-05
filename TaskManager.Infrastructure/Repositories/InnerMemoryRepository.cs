@@ -34,9 +34,22 @@ public class InnerMemoryRepository<T> : IRepository<T> where T : ToDo, new()
         return Task.FromResult<IEnumerable<T>>(items);
     }
 
+    public Task<T> GetByAsync(Guid Id)
+    {
+        var item = CollectionOfData[Id];
+        return Task.FromResult(item);
+    }
+
     public Task SaveChangesAsync()
     {
         return Task.CompletedTask;
+    }
+
+    public async  Task SoftDeleteAsync(Guid Id)
+    {
+        var item = CollectionOfData[Id];
+        item.IsDeleted = true;
+        await UpdateAsync(item);
     }
 
     public Task UpdateAsync(T entity)

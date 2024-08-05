@@ -48,5 +48,56 @@ namespace TaskManager.Server.Controllers
             }
 
         }
+
+        [HttpPut]
+        public async Task Update(Domain.UpdateBug bug)
+        {
+            try
+            {
+                if (bug == null)
+                {
+                    throw new ArgumentNullException(nameof(bug));
+
+                }
+                TodoStatus status;
+                    
+                if (!Enum.TryParse<TodoStatus>(bug.status, out status))
+                {
+                    throw new ArgumentException(nameof(status));
+                }
+
+                Severity severity;
+
+                if (!Enum.TryParse<Severity>(bug.Severity, out severity))
+                {
+                    throw new ArgumentException(nameof(bug.Severity));
+                }
+                var modifiedBug = new Domain.Bug(severity,bug.AffectedVersion,bug.Images) with
+                {
+                    Id = bug.Id,
+                    AssignedTo = bug.AssignedTo,
+                    Description = bug.Description,
+                    Title = bug.Title,
+                    DueDate = bug.DueDate,
+                    IsCompeted = bug.IsCompeleted,
+                    status = status,
+                    
+
+                };
+                await _repository.UpdateAsync(modifiedBug.AsData<Domain.Bug, Bug>());
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        public async Task Delete(Guid Id)
+        {
+            await _repository.SoftDeleteAsync(Id);
+        }
     }
 }

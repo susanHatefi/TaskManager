@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Projects\\Job\\Sample-work\\TaskManager\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|d:\\projects\\job\\sample-work\\taskmanager\\taskmanager.server\\controllers\\featurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|solutionrelative:taskmanager.server\\controllers\\featurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|d:\\projects\\job\\sample-work\\taskmanager\\taskmanager.server\\controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|solutionrelative:taskmanager.server\\controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15D04A44-20CB-44C8-8591-117B281BEE26}|TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj|d:\\projects\\job\\sample-work\\taskmanager\\taskmanager.infrastructure\\repositories\\innermemoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15D04A44-20CB-44C8-8591-117B281BEE26}|TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj|solutionrelative:taskmanager.infrastructure\\repositories\\innermemoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|d:\\projects\\job\\sample-work\\taskmanager\\taskmanager.server\\controllers\\todotaskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17EF65AE-6F62-4A2E-935C-1A03859345F2}|TaskManager.Server\\TaskManager.Server.csproj|solutionrelative:taskmanager.server\\controllers\\todotaskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,58 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FeatureController.cs",
-              "DocumentMoniker": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\FeatureController.cs",
-              "RelativeDocumentMoniker": "TaskManager.Server\\Controllers\\FeatureController.cs",
-              "ToolTip": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\FeatureController.cs",
-              "RelativeToolTip": "TaskManager.Server\\Controllers\\FeatureController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAA9wBgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T01:21:54.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InnerMemoryRepository.cs",
-              "DocumentMoniker": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Infrastructure\\Repositories\\InnerMemoryRepository.cs",
-              "RelativeDocumentMoniker": "TaskManager.Infrastructure\\Repositories\\InnerMemoryRepository.cs",
-              "ToolTip": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Infrastructure\\Repositories\\InnerMemoryRepository.cs",
-              "RelativeToolTip": "TaskManager.Infrastructure\\Repositories\\InnerMemoryRepository.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwCEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T02:40:34.076Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TodoTaskController.cs",
-              "DocumentMoniker": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\TodoTaskController.cs",
-              "RelativeDocumentMoniker": "TaskManager.Server\\Controllers\\TodoTaskController.cs",
-              "ToolTip": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\TodoTaskController.cs",
-              "RelativeToolTip": "TaskManager.Server\\Controllers\\TodoTaskController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T02:40:26.092Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TodosController.cs",
-              "DocumentMoniker": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\TodosController.cs",
-              "RelativeDocumentMoniker": "TaskManager.Server\\Controllers\\TodosController.cs",
-              "ToolTip": "D:\\Projects\\Job\\Sample-work\\TaskManager\\TaskManager.Server\\Controllers\\TodosController.cs",
-              "RelativeToolTip": "TaskManager.Server\\Controllers\\TodosController.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAAADQAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T01:21:55.081Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

@@ -4,7 +4,7 @@ namespace TaskManager.Infrastructure.Mapping;
 
 public static class DomainToData
 {
-    public static D AsData<T, D>(this T entity) where T : Domain.IToDo where D : ToDo, new()
+    public static D AsData<T, D>(this T entity) where T :  Domain.IToDo where D : ToDo, new()
     {
         if (entity == null) return null!;
         var data = entity switch
@@ -12,7 +12,6 @@ public static class DomainToData
             Domain.Bug bug => ToDataBug(bug) as D,
             Domain.Feature feature => ToDataFeature(feature) as D,
             Domain.ToDoTask task => ToDataTask(task) as D,
-            Domain.User user => ToDataUser(user) as D,
             _=> null
         };
         return data;
@@ -28,7 +27,10 @@ public static class DomainToData
             AffectedVersion=bug.AffectedVersion,
             Images=bug?.Images?.Select(img=>new Image { ImageData=Convert.ToBase64String(img)}).ToArray(),
             Id=bug.Id??Guid.NewGuid(),
-            DueDate=bug.DueDate
+            DueDate=bug.DueDate,
+            AssignedTo = ToDataUser(bug.AssignedTo),
+
+            Status = bug.status
         };
     }
 
@@ -46,7 +48,8 @@ public static class DomainToData
             CreatedDate=feature.CreatedDate,
             IsDeleted=feature.IsDeleted,
             AssignedTo=ToDataUser(feature.AssignedTo),
-            CreatedBy=ToDataUser(feature.CreatedBy)
+            CreatedBy=ToDataUser(feature.CreatedBy),
+            Status=feature.status
         };
     }
 
@@ -65,12 +68,13 @@ public static class DomainToData
         return new()
         {
            Title= task.Title,
+           Description=task.Description,
            DueDate= task.DueDate,
            CreatedDate=task.CreatedDate,
            Id= task.Id ?? Guid.NewGuid(),
            IsCompeted=  task.IsCompeted,
            IsDeleted= task.IsDeleted,
-
+           Status=task.status
         };
            
 
